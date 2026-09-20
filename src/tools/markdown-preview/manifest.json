@@ -1,0 +1,19 @@
+{
+  "id": "markdown-preview",
+  "name": "Markdown to HTML Converter",
+  "version": "1.0.0",
+  "description": "تبدیل متن Markdown به HTML و پیش نمایش زنده",
+  "author": "Open Source Community",
+  "category": "utility",
+  "entrypoint": "index.ts",
+  "permissions": {
+    "clipboard": true,
+    "network": false,
+    "localStorage": false
+  },
+  "privacy": {
+    "localProcessingOnly": true,
+    "dataSentToServer": false
+  },
+  "license": "MIT"
+}
