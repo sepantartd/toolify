@@ -1,0 +1,19 @@
+{
+  "id": "uuid-generator",
+  "name": "UUID / ULID Generator",
+  "version": "1.0.0",
+  "description": "تولید شناسه های یکتا UUID v4 و ULID به صورت تکی و گروهی",
+  "author": "Open Source Community",
+  "category": "generator",
+  "entrypoint": "index.ts",
+  "permissions": {
+    "clipboard": true,
+    "network": false,
+    "localStorage": false
+  },
+  "privacy": {
+    "localProcessingOnly": true,
+    "dataSentToServer": false
+  },
+  "license": "MIT"
+}
