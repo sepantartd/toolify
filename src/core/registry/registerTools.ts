@@ -1,95 +1,96 @@
 import { toolRegistry } from './toolRegistry';
 
-// ثبت تمام مانیفست‌ها و لودرهای دینامیک ابزارهای فاز ۴ تا ۱۲
+// Import مانیفست‌ها به‌صورت استاندارد ESM
+import jsonFormatterManifest from '../../tools/json-formatter/manifest.json';
+import hashGeneratorManifest from '../../tools/hash-generator/manifest.json';
+import base64EncoderManifest from '../../tools/base64-encoder/manifest.json';
+import uuidGeneratorManifest from '../../tools/uuid-generator/manifest.json';
+import regexTesterManifest from '../../tools/regex-tester/manifest.json';
+import colorPickerManifest from '../../tools/color-picker/manifest.json';
+import codeMinifierManifest from '../../tools/code-minifier/manifest.json';
+import diffCheckerManifest from '../../tools/diff-checker/manifest.json';
+import qrGeneratorManifest from '../../tools/qr-generator/manifest.json';
+import loremGeneratorManifest from '../../tools/lorem-generator/manifest.json';
+import passwordGeneratorManifest from '../../tools/password-generator/manifest.json';
+import wordCounterManifest from '../../tools/word-counter/manifest.json';
+import base64ImageManifest from '../../tools/base64-image/manifest.json';
+import markdownPreviewManifest from '../../tools/markdown-preview/manifest.json';
+import urlEncoderManifest from '../../tools/url-encoder/manifest.json';
+import userAgentParserManifest from '../../tools/user-agent-parser/manifest.json';
+import mathEvaluatorManifest from '../../tools/math-evaluator/manifest.json';
+import csvToJsonManifest from '../../tools/csv-to-json/manifest.json';
 
 export function initToolRegistry() {
-  // فاز ۴: JSON Formatter & Hash Generator
   toolRegistry.register(
-    require('../../tools/json-formatter/manifest.json'),
-    () => import('../../tools/json-formatter')
+    jsonFormatterManifest as any,
+    () => import('../../tools/json-formatter').then((m) => m.default)
   );
   toolRegistry.register(
-    require('../../tools/hash-generator/manifest.json'),
-    () => import('../../tools/hash-generator')
-  );
-
-  // فاز ۵: Base64 Encoder & UUID Generator
-  toolRegistry.register(
-    require('../../tools/base64-encoder/manifest.json'),
-    () => import('../../tools/base64-encoder')
+    hashGeneratorManifest as any,
+    () => import('../../tools/hash-generator').then((m) => m.default)
   );
   toolRegistry.register(
-    require('../../tools/uuid-generator/manifest.json'),
-    () => import('../../tools/uuid-generator')
-  );
-
-  // فاز ۶: RegEx Tester & Color Picker
-  toolRegistry.register(
-    require('../../tools/regex-tester/manifest.json'),
-    () => import('../../tools/regex-tester')
+    base64EncoderManifest as any,
+    () => import('../../tools/base64-encoder').then((m) => m.default)
   );
   toolRegistry.register(
-    require('../../tools/color-picker/manifest.json'),
-    () => import('../../tools/color-picker')
-  );
-
-  // فاز ۷: Minifier & Diff Checker
-  toolRegistry.register(
-    require('../../tools/code-minifier/manifest.json'),
-    () => import('../../tools/code-minifier')
+    uuidGeneratorManifest as any,
+    () => import('../../tools/uuid-generator').then((m) => m.default)
   );
   toolRegistry.register(
-    require('../../tools/diff-checker/manifest.json'),
-    () => import('../../tools/diff-checker')
-  );
-
-  // فاز ۸: QR Code Generator & Lorem Ipsum Generator
-  toolRegistry.register(
-    require('../../tools/qr-generator/manifest.json'),
-    () => import('../../tools/qr-generator')
+    regexTesterManifest as any,
+    () => import('../../tools/regex-tester').then((m) => m.default)
   );
   toolRegistry.register(
-    require('../../tools/lorem-generator/manifest.json'),
-    () => import('../../tools/lorem-generator')
-  );
-
-  // فاز ۹: Password Generator & Word Counter
-  toolRegistry.register(
-    require('../../tools/password-generator/manifest.json'),
-    () => import('../../tools/password-generator')
+    colorPickerManifest as any,
+    () => import('../../tools/color-picker').then((m) => m.default)
   );
   toolRegistry.register(
-    require('../../tools/word-counter/manifest.json'),
-    () => import('../../tools/word-counter')
-  );
-
-  // فاز ۱۰: Base64 Image & Markdown Converter
-  toolRegistry.register(
-    require('../../tools/base64-image/manifest.json'),
-    () => import('../../tools/base64-image')
+    codeMinifierManifest as any,
+    () => import('../../tools/code-minifier').then((m) => m.default)
   );
   toolRegistry.register(
-    require('../../tools/markdown-preview/manifest.json'),
-    () => import('../../tools/markdown-preview')
-  );
-
-  // فاز ۱۱: URL Encoder & User Agent Parser
-  toolRegistry.register(
-    require('../../tools/url-encoder/manifest.json'),
-    () => import('../../tools/url-encoder')
+    diffCheckerManifest as any,
+    () => import('../../tools/diff-checker').then((m) => m.default)
   );
   toolRegistry.register(
-    require('../../tools/user-agent-parser/manifest.json'),
-    () => import('../../tools/user-agent-parser')
-  );
-
-  // فاز ۱۲: Math Evaluator & CSV to JSON
-  toolRegistry.register(
-    require('../../tools/math-evaluator/manifest.json'),
-    () => import('../../tools/math-evaluator')
+    qrGeneratorManifest as any,
+    () => import('../../tools/qr-generator').then((m) => m.default)
   );
   toolRegistry.register(
-    require('../../tools/csv-to-json/manifest.json'),
-    () => import('../../tools/csv-to-json')
+    loremGeneratorManifest as any,
+    () => import('../../tools/lorem-generator').then((m) => m.default)
   );
-}
+  toolRegistry.register(
+    passwordGeneratorManifest as any,
+    () => import('../../tools/password-generator').then((m) => m.default)
+  );
+  toolRegistry.register(
+    wordCounterManifest as any,
+    () => import('../../tools/word-counter').then((m) => m.default)
+  );
+  toolRegistry.register(
+    base64ImageManifest as any,
+    () => import('../../tools/base64-image').then((m) => m.default)
+  );
+  toolRegistry.register(
+    markdownPreviewManifest as any,
+    () => import('../../tools/markdown-preview').then((m) => m.default)
+  );
+  toolRegistry.register(
+    urlEncoderManifest as any,
+    () => import('../../tools/url-encoder').then((m) => m.default)
+  );
+  toolRegistry.register(
+    userAgentParserManifest as any,
+    () => import('../../tools/user-agent-parser').then((m) => m.default)
+  );
+  toolRegistry.register(
+    mathEvaluatorManifest as any,
+    () => import('../../tools/math-evaluator').then((m) => m.default)
+  );
+  toolRegistry.register(
+    csvToJsonManifest as any,
+    () => import('../../tools/csv-to-json').then((m) => m.default)
+  );
+    }
