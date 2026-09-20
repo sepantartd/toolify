@@ -1,0 +1,19 @@
+{
+  "id": "color-picker",
+  "name": "Color Picker & Palette Generator",
+  "version": "1.0.0",
+  "description": "انتخاب رنگ، تبدیل کدهای HEX، RGB، HSL و کپی سریع",
+  "author": "Open Source Community",
+  "category": "media",
+  "entrypoint": "index.ts",
+  "permissions": {
+    "clipboard": true,
+    "network": false,
+    "localStorage": false
+  },
+  "privacy": {
+    "localProcessingOnly": true,
+    "dataSentToServer": false
+  },
+  "license": "MIT"
+}
