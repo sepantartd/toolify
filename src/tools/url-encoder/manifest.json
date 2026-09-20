@@ -1,0 +1,19 @@
+{
+  "id": "url-encoder",
+  "name": "URL Encoder & Decoder",
+  "version": "1.0.0",
+  "description": "کدگذاری (Encode) و رمزگشایی (Decode) آدرس‌های وب و کاراکترهای خاص URL",
+  "author": "Open Source Community",
+  "category": "network",
+  "entrypoint": "index.ts",
+  "permissions": {
+    "clipboard": true,
+    "network": false,
+    "localStorage": false
+  },
+  "privacy": {
+    "localProcessingOnly": true,
+    "dataSentToServer": false
+  },
+  "license": "MIT"
+}
