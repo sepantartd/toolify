@@ -1,0 +1,10 @@
+import { ToolModule } from '../../core/types/tool';
+import { TemplateTool } from './TemplateTool';
+import manifestData from './manifest.json';
+
+export const toolModule: ToolModule = {
+  manifest: manifestData as ToolModule['manifest'],
+  component: TemplateTool
+};
+
+export default toolModule;
