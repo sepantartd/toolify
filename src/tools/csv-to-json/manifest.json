@@ -1,0 +1,19 @@
+{
+  "id": "csv-to-json",
+  "name": "CSV to JSON Converter",
+  "version": "1.0.0",
+  "description": "تبدیل داده‌های جدول CSV به آرایه‌ای از اشیاء JSON و برعکس",
+  "author": "Open Source Community",
+  "category": "utilities",
+  "entrypoint": "index.ts",
+  "permissions": {
+    "clipboard": true,
+    "network": false,
+    "localStorage": false
+  },
+  "privacy": {
+    "localProcessingOnly": true,
+    "dataSentToServer": false
+  },
+  "license": "MIT"
+}
