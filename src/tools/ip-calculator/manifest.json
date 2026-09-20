@@ -1,0 +1,19 @@
+{
+  "id": "ip-calculator",
+  "name": "IP & CIDR Subnet Calculator",
+  "version": "1.0.0",
+  "description": "محاسبه محدوده IP، آدرس شبکه، Broadcast و Subnet Mask بر اساس CIDR",
+  "author": "Open Source Community",
+  "category": "network",
+  "entrypoint": "index.ts",
+  "permissions": {
+    "clipboard": true,
+    "network": false,
+    "localStorage": false
+  },
+  "privacy": {
+    "localProcessingOnly": true,
+    "dataSentToServer": false
+  },
+  "license": "MIT"
+}
