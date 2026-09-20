@@ -1,0 +1,19 @@
+{
+  "id": "user-agent-parser",
+  "name": "User Agent Parser",
+  "version": "1.0.0",
+  "description": "تحلیل و استخراج اطلاعات مرورگر، سیستم‌عامل و نوع دستگاه از روی رشته User-Agent",
+  "author": "Open Source Community",
+  "category": "network",
+  "entrypoint": "index.ts",
+  "permissions": {
+    "clipboard": true,
+    "network": false,
+    "localStorage": false
+  },
+  "privacy": {
+    "localProcessingOnly": true,
+    "dataSentToServer": false
+  },
+  "license": "MIT"
+}
