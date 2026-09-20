@@ -1,0 +1,19 @@
+{
+  "id": "password-generator",
+  "name": "Password Generator",
+  "version": "1.0.0",
+  "description": "تولید رمزهای عبور کاملاً تصادفی و امن بر اساس ضوابط سفارشی",
+  "author": "Open Source Community",
+  "category": "security",
+  "entrypoint": "index.ts",
+  "permissions": {
+    "clipboard": true,
+    "network": false,
+    "localStorage": false
+  },
+  "privacy": {
+    "localProcessingOnly": true,
+    "dataSentToServer": false
+  },
+  "license": "MIT"
+}
