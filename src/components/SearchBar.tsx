@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, Star, Filter, X } from 'lucide-react';
+import { Search, Star, X } from 'lucide-react';
 
 interface SearchBarProps {
   searchQuery: string;
@@ -24,7 +24,6 @@ export const SearchBar: React.FC<SearchBarProps> = ({
 }) => {
   return (
     <div className="space-y-3 bg-slate-950/80 p-4 rounded-xl border border-slate-800/80 shadow-lg" dir="rtl">
-      {/* نوار ورودی اصلی جستجو */}
       <div className="relative flex items-center">
         <Search className="absolute right-3.5 w-4 h-4 text-slate-400 pointer-events-none" />
         <input
@@ -44,9 +43,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         )}
       </div>
 
-      {/* فیلتر دسته‌بندی‌ها و نشانگر علاقه‌مندی‌ها */}
       <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
-        {/* لیست تب‌های دسته‌بندی */}
         <div className="flex flex-wrap items-center gap-1.5 overflow-x-auto custom-scrollbar pb-1">
           <button
             onClick={() => onCategoryChange('all')}
@@ -67,14 +64,13 @@ export const SearchBar: React.FC<SearchBarProps> = ({
                 selectedCategory === cat
                   ? 'bg-indigo-600 text-white shadow-sm'
                   : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800'
-              }`}
-            >
-              {cat}
-            </button>
+            }`}
+          >
+            {cat}
+          </button>
           ))}
         </div>
 
-        {/* دکمه ابزارهای نشان‌شده */}
         <button
           onClick={() => onFavoritesOnlyChange(!favoritesOnly)}
           className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-colors border ${
