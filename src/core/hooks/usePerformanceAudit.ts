@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 export function usePerformanceAudit() {
   useEffect(() => {
-    if (process.env.NODE_ENV !== 'production' && typeof window !== 'undefined' && 'performance' in window) {
+    if (!import.meta.env.PROD && typeof window !== 'undefined' && 'performance' in window) {
       const observer = new PerformanceObserver((list) => {
         list.getEntries().forEach((entry) => {
           if (entry.entryType === 'navigation') {
@@ -18,10 +18,10 @@ export function usePerformanceAudit() {
       try {
         observer.observe({ entryTypes: ['navigation', 'resource'] });
       } catch (e) {
-        // پشتیبانی در مرورگرهای قدیمی‌تر
+        // پشتیبانی مرورگرهای قدیمی‌تر
       }
 
       return () => observer.disconnect();
     }
   }, []);
-            }
+}
