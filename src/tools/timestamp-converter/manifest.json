@@ -1,0 +1,19 @@
+{
+  "id": "timestamp-converter",
+  "name": "Timestamp / Epoch Converter",
+  "version": "1.0.0",
+  "description": "تبدیل زمان Epoch/Unix Timestamp به تاریخ انسانی و برعکس",
+  "author": "Open Source Community",
+  "category": "utility",
+  "entrypoint": "index.ts",
+  "permissions": {
+    "clipboard": true,
+    "network": false,
+    "localStorage": false
+  },
+  "privacy": {
+    "localProcessingOnly": true,
+    "dataSentToServer": false
+  },
+  "license": "MIT"
+}
