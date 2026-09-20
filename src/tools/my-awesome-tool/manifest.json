@@ -1,0 +1,19 @@
+{
+  "id": "my-awesome-tool",
+  "name": "My Awesome Tool",
+  "version": "1.0.0",
+  "description": "Short description of what your tool does.",
+  "author": "Your GitHub Username",
+  "category": "utility",
+  "entrypoint": "index.ts",
+  "permissions": {
+    "clipboard": true,
+    "network": false,
+    "localStorage": false
+  },
+  "privacy": {
+    "localProcessingOnly": true,
+    "dataSentToServer": false
+  },
+  "license": "MIT"
+}
