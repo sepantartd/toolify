@@ -1,0 +1,19 @@
+{
+  "id": "math-evaluator",
+  "name": "Math Evaluator",
+  "version": "1.0.0",
+  "description": "محاسبه‌گر عبارات ریاضی و توابع علمی با قابلیت محاسبات لحظه‌ای",
+  "author": "Open Source Community",
+  "category": "utilities",
+  "entrypoint": "index.ts",
+  "permissions": {
+    "clipboard": true,
+    "network": false,
+    "localStorage": false
+  },
+  "privacy": {
+    "localProcessingOnly": true,
+    "dataSentToServer": false
+  },
+  "license": "MIT"
+}
