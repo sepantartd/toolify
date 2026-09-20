@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { AppLayout } from './components/AppLayout';
-import { ToolRegistry } from './registry/ToolRegistry';
+import { toolRegistry } from './registry/toolRegistry';
 import { ErrorBoundary } from './components/ErrorBoundary';
 
 export const App: React.FC = () => {
   const [activeToolId, setActiveToolId] = useState<string | null>(null);
-  
-  const tools = ToolRegistry.getAllTools();
-  const activeTool = activeToolId ? ToolRegistry.getTool(activeToolId) : null;
+
+  const tools = toolRegistry.getAllTools();
+  const activeTool = activeToolId ? toolRegistry.getTool(activeToolId) : null;
+  const ActiveComponent = activeTool ? activeTool.component : null;
 
   return (
     <AppLayout
@@ -16,7 +17,7 @@ export const App: React.FC = () => {
           {tools.length === 0 ? (
             <p className="text-sm text-slate-500 text-center py-4">No tools registered yet.</p>
           ) : (
-            tools.map(tool => (
+            tools.map((tool) => (
               <button
                 key={tool.manifest.id}
                 onClick={() => setActiveToolId(tool.manifest.id)}
@@ -33,16 +34,16 @@ export const App: React.FC = () => {
         </nav>
       }
     >
-      {activeTool ? (
+      {activeTool && ActiveComponent ? (
         <div className="space-y-6 animate-in fade-in duration-300">
           <header className="border-b border-slate-800/60 pb-4">
             <h1 className="text-2xl font-bold text-slate-100">{activeTool.manifest.name}</h1>
             <p className="text-slate-400 text-sm mt-1.5">{activeTool.manifest.description}</p>
           </header>
-          
+
           <main className="bg-slate-900 border border-slate-800 rounded-xl p-4 md:p-6 shadow-sm">
             <ErrorBoundary toolName={activeTool.manifest.name}>
-              <activeTool.component toolId={activeTool.manifest.id} isActive={true} />
+              <ActiveComponent toolId={activeTool.manifest.id} isActive={true} />
             </ErrorBoundary>
           </main>
         </div>
@@ -61,4 +62,5 @@ export const App: React.FC = () => {
     </AppLayout>
   );
 };
-          
+
+export default App;
