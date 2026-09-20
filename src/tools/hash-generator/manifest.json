@@ -1,0 +1,19 @@
+{
+  "id": "hash-generator",
+  "name": "Hash Generator",
+  "version": "1.0.0",
+  "description": "تولید هش‌های امنیتی SHA-1, SHA-256 و SHA-512 به‌صورت سریع و محلی",
+  "author": "Open Source Community",
+  "category": "developer",
+  "entrypoint": "index.ts",
+  "permissions": {
+    "clipboard": true,
+    "network": false,
+    "localStorage": false
+  },
+  "privacy": {
+    "localProcessingOnly": true,
+    "dataSentToServer": false
+  },
+  "license": "MIT"
+}
