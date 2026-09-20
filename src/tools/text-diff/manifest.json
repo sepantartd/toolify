@@ -1,0 +1,19 @@
+{
+  "id": "text-diff",
+  "name": "Text Diff Checker",
+  "version": "1.0.0",
+  "description": "مقایسه خط به خط دو متن و تشخیص تفاوت ها به صورت محلی",
+  "author": "Open Source Community",
+  "category": "utility",
+  "entrypoint": "index.ts",
+  "permissions": {
+    "clipboard": true,
+    "network": false,
+    "localStorage": false
+  },
+  "privacy": {
+    "localProcessingOnly": true,
+    "dataSentToServer": false
+  },
+  "license": "MIT"
+}
