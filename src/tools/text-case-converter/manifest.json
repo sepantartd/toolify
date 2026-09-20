@@ -1,0 +1,19 @@
+{
+  "id": "text-case-converter",
+  "name": "Text Case Converter",
+  "version": "1.0.0",
+  "description": "تبدیل حالت حروف متن به uppercase، lowercase، camelCase، snake_case و...",
+  "author": "Open Source Community",
+  "category": "utility",
+  "entrypoint": "index.ts",
+  "permissions": {
+    "clipboard": true,
+    "network": false,
+    "localStorage": false
+  },
+  "privacy": {
+    "localProcessingOnly": true,
+    "dataSentToServer": false
+  },
+  "license": "MIT"
+}
