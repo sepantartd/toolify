@@ -1,0 +1,19 @@
+{
+  "id": "image-resizer",
+  "name": "Image Resizer & Converter",
+  "version": "1.0.0",
+  "description": "تغییر ابعاد تصویر و تبدیل فرمت‌های PNG، JPEG و WEBP به صورت محلی در مرورگر",
+  "author": "Open Source Community",
+  "category": "media",
+  "entrypoint": "index.ts",
+  "permissions": {
+    "clipboard": false,
+    "network": false,
+    "localStorage": false
+  },
+  "privacy": {
+    "localProcessingOnly": true,
+    "dataSentToServer": false
+  },
+  "license": "MIT"
+}
