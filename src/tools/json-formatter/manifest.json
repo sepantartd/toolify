@@ -1,0 +1,19 @@
+{
+  "id": "json-formatter",
+  "name": "JSON Formatter & Validator",
+  "version": "1.0.0",
+  "description": "Format, validate, minify, and inspect JSON data directly in your browser with complete privacy.",
+  "author": "Open Source Community",
+  "category": "formatter",
+  "entrypoint": "index.ts",
+  "permissions": {
+    "clipboard": true,
+    "network": false,
+    "localStorage": false
+  },
+  "privacy": {
+    "localProcessingOnly": true,
+    "dataSentToServer": false
+  },
+  "license": "MIT"
+}
