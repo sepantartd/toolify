@@ -1,0 +1,19 @@
+{
+  "id": "base64-tool",
+  "name": "Base64 Encoder / Decoder",
+  "version": "1.0.0",
+  "description": "Encode text to Base64 or decode Base64 back to text instantly in your browser.",
+  "author": "Open Source Community",
+  "category": "converter",
+  "entrypoint": "index.ts",
+  "permissions": {
+    "clipboard": true,
+    "network": false,
+    "localStorage": false
+  },
+  "privacy": {
+    "localProcessingOnly": true,
+    "dataSentToServer": false
+  },
+  "license": "MIT"
+}
