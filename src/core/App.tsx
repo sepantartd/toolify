@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { AppLayout } from './components/AppLayout';
-import { toolRegistry } from './registry/toolRegistry';
+import { toolRegistry, ToolRegistry } from './registry/toolRegistry';
 import { ErrorBoundary } from './components/ErrorBoundary';
 
 export const App: React.FC = () => {
   const [activeToolId, setActiveToolId] = useState<string | null>(null);
 
-  const tools = toolRegistry.getAllTools();
-  const activeTool = activeToolId ? toolRegistry.getTool(activeToolId) : null;
+  // پشتیبانی از هر دو حالت ایمپورت جهت جلوگیری از ارور کنسول
+  const registry = toolRegistry || ToolRegistry;
+  const tools = registry && typeof registry.getAllTools === 'function' ? registry.getAllTools() : [];
+  const activeTool = activeToolId && registry && typeof registry.getTool === 'function' ? registry.getTool(activeToolId) : null;
   const ActiveComponent = activeTool ? activeTool.component : null;
 
   return (
@@ -43,7 +45,9 @@ export const App: React.FC = () => {
 
           <main className="bg-slate-900 border border-slate-800 rounded-xl p-4 md:p-6 shadow-sm">
             <ErrorBoundary toolName={activeTool.manifest.name}>
-              <ActiveComponent toolId={activeTool.manifest.id} isActive={true} />
+              <React.Suspense fallback={<div className="p-4 text-slate-400">Loading tool...</div>}>
+                <ActiveComponent toolId={activeTool.manifest.id} isActive={true} />
+              </React.Suspense>
             </ErrorBoundary>
           </main>
         </div>
