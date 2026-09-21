@@ -1,44 +1,51 @@
-import { ToolManifest, ToolModule } from '../types/tool';
+import React from 'react';
 
-// تعریف تایپ برای بارگذاری دینامیک (Lazy Loading)
-export type ToolLoader = () => Promise<ToolModule>;
+export interface ToolManifest {
+  id: string;
+  name: string;
+  description: string;
+  version?: string;
+  category?: string;
+  icon?: string;
+}
 
 export interface RegisteredTool {
   manifest: ToolManifest;
-  load: ToolLoader;
+  component: React.ComponentType<any>;
 }
 
-class ToolRegistry {
+class ToolRegistryClass {
   private tools: Map<string, RegisteredTool> = new Map();
 
-  // ثبت یک ابزار در ریجستری
-  register(manifest: ToolManifest, load: ToolLoader) {
-    this.tools.set(manifest.id, { manifest, load });
-  }
-
-  // دریافت مانیفست همه ابزارهای ثبت‌شده
-  getAllManifests(): ToolManifest[] {
-    return Array.from(this.tools.values()).map((t) => t.manifest);
-  }
-
-  // دریافت مانیفست یک ابزار خاص بر اساس ID
-  getManifest(id: string): ToolManifest | undefined {
-    return this.tools.get(id)?.manifest;
-  }
-
-  // بارگذاری دینامیک کامپوننت و ماژول ابزار
-  async loadTool(id: string): Promise<ToolModule> {
-    const tool = this.tools.get(id);
-    if (!tool) {
-      throw new Error(`Tool with id "${id}" not found in registry.`);
+  register(manifest: ToolManifest, component: any) {
+    if (!manifest || !manifest.id) return;
+    
+    let Comp = component;
+    if (typeof component === 'function' && !component.prototype?.isReactComponent) {
+      try {
+        const res = component();
+        if (res && typeof res.then === 'function') {
+          Comp = React.lazy(component);
+        }
+      } catch (e) {
+        // Keep component as is
+      }
     }
-    return await tool.load();
+
+    this.tools.set(manifest.id, { manifest, component: Comp });
   }
 
-  // فیلتر ابزارها بر اساس دسته‌بندی
-  getToolsByCategory(category: string): ToolManifest[] {
-    return this.getAllManifests().filter((m) => m.category === category);
+  getTool(id: string): RegisteredTool | undefined {
+    return this.tools.get(id);
+  }
+
+  getAllTools(): RegisteredTool[] {
+    return Array.from(this.tools.values());
   }
 }
 
-export const toolRegistry = new ToolRegistry();
+// ساخت یک نمونه واحد (Singleton)
+export const toolRegistry = new ToolRegistryClass();
+export const ToolRegistry = toolRegistry;
+export default toolRegistry;
+            
