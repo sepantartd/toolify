@@ -284,4 +284,3 @@ https://github.com/sepantartd/toolify
 If you find Toolify useful, consider giving the repository a ⭐.
 
 Every Star, Issue, Pull Request, and technical suggestion helps the project grow.
-````1
